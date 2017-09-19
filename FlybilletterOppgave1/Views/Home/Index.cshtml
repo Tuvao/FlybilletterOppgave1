@@ -8,6 +8,7 @@
     <style>
         .container .Rad {
             background-color: #F4F4F4;
+            color: #022E3C;
         }
         .container{
             width:85%;
@@ -36,8 +37,9 @@
             border: 2px solid grey;
             border-radius: 5px;
         }
-        .antall{
-            width:2em;
+
+        td{
+            padding:0.5em;
         }
 
         .plussminus {
@@ -49,6 +51,7 @@
             text-align:center;
             display:inline-block;
         }
+
         #barn, #voksne {
             border-right: none;
             border-left: none;
@@ -63,6 +66,22 @@
             border-left: none;
             border-right: 1px solid grey;
             background-color: #D6EBF2;
+        }
+
+        #bestill {
+            border: none;
+            color: white;
+            letter-spacing:1px;
+            background-color: #022E3C;
+            width: 200%;
+            height: 3em;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        #bestill:hover {
+            opacity:0.8;
         }
 
     </style>
@@ -150,56 +169,68 @@
 <body>
     <div class="container">
 <h2>Bestill flybilletter her!</h2>
-        <div class="row Rad">
-            <div class="col-lg-6 col-md-6 Option">
-                <h4>Hvor reiser du fra?</h4>
-                <input type="text" class="tekstFelt" name="fraSted" value="Oslo(OSL)"/>
+        <form action="" method="post">
+            <div class="row Rad">
+                <div class="col-lg-6 col-md-6 Option">
+                    <h4>Hvor reiser du fra?</h4>
+                    <input type="text" class="tekstFelt" name="fraSted" value="Oslo(OSL)" />
+                </div>
+                <div class="col-lg-6 col-md-6 Option">
+                    <h4>Hvor vil du reise?</h4>
+                    <input type="text" class="tekstFelt" name="fraSted" value="Praha(PRH)" />
+                </div>
             </div>
-            <div class="col-lg-6 col-md-6 Option">
-                <h4>Hvor vil du reise?</h4>
-                <input type="text" class="tekstFelt" name="fraSted" value="Praha(PRH)" />
-            </div>
-        </div>
-        <div class="row Rad">
-            <div class="col-lg-6 col-md-6 Option">
-                <h4>Avreisedato</h4>
-                <input type="date" class="tekstFelt" name="avreiseDato" />
-            </div>
-            <div class="col-lg-6 col-md-6 Option">
-                <h4 id="hjemreiseTekst">Hjemreisedato</h4>
-                <input type="date" class="tekstFelt" name="hjemreiseDato" id="hjemreiseDato"/>
-                @*<div class="checkbox">
-                    <label><input type="checkbox" name="Retur" onchange="endre()"
-                                  id="checkboxid" value="Retur">Tur/retur</label>
-                </div>*@
-                <span id="radiobutt">
-                    <input type="radio" name="rad1" value="Tur" checked="checked"/> Tur/Retur
-                    <input type="radio" name="rad1" value="TurRetur" /> Kun tur
-                </span>
-            </div>
+            <div class="row Rad">
+                <div class="col-lg-6 col-md-6 Option">
+                    <h4>Avreisedato</h4>
+                    <input type="date" class="tekstFelt" name="avreiseDato" />
+                </div>
+                <div class="col-lg-6 col-md-6 Option">
+                    <h4 id="hjemreiseTekst">Hjemreisedato</h4>
+                    <input type="date" class="tekstFelt" name="hjemreiseDato" id="hjemreiseDato" />
+                    @*<div class="checkbox">
+                        <label><input type="checkbox" name="Retur" onchange="endre()"
+                                      id="checkboxid" value="Retur">Tur/retur</label>
+                    </div>*@
+                    <span id="radiobutt">
+                        <input type="radio" name="rad1" value="Tur" checked="checked" /> Tur/Retur
+                        <input type="radio" name="rad1" value="TurRetur" /> Kun tur
+                    </span>
+                </div>
 
-        </div>
-        <div class="row Rad">
-            <div class="col-lg-6 col-md-6 Option">
-                <h4>Hvor mange reiser?</h4>
-                <table>
-                    <tr>
-                        <td>Voksne:</td>
-                        <td><button type="button" class="plussminus" name="minus" id="minusVoksen" disabled="disabled">-</button>
-                        <input type="text" class="plussminus" id="voksne" class="antall" value="0" />
-                        <button type="button" class="plussminus" name="+" id="plussVoksen">+</button></td>
-                    </tr>
-                    <tr>
-                        <td>Barn (Under 12 år):</td>
-                        <td><button type="button" class="plussminus" name="minus" id="minusBarn" disabled="disabled">-</button>
-                        <input type="text" class="plussminus" id="barn" class="antall" value="0" />
-                        <button type="button" class="plussminus" name="+" id="plussBarn">+</button></td>
-                    </tr>
-                </table>
-                         
-             </div>
+            </div>
+            <div class="row Rad">
+                <div class="col-lg-6 col-md-6 Option">
+                    <h4>Hvor mange reiser?</h4>
+                    <table>
+                        <tr>
+                            <td>Voksne:</td>
+                            <td>
+                                <button type="button" class="plussminus" name="minus" id="minusVoksen" disabled="disabled">-</button>
+                                <input type="text" class="plussminus" id="voksne" class="antall" value="0" />
+                                <button type="button" class="plussminus" name="+" id="plussVoksen">+</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Barn (Under 12 år):</td>
+                            <td>
+                                <button type="button" class="plussminus" name="minus" id="minusBarn" disabled="disabled">-</button>
+                                <input type="text" class="plussminus" id="barn" class="antall" value="0" />
+                                <button type="button" class="plussminus" name="+" id="plussBarn">+</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" name="bestill" value="Bestill reise" id="bestill"/></td>
+                        </tr>
+                    </table>
 
-        </div> 
+                </div>
+
+
+
+            </div>
+        </form>
+        
 </div>
 </body>
 </html>
