@@ -25,9 +25,42 @@
             padding: 1em;
             font-size:1.2em;
         }
+
+        .tekstFelt:hover {
+            border: 2px solid grey
+        }
+
+        .tekstFelt:focus {
+            border: 2px solid grey;
+            border-radius: 5px;
+        }
         .antall{
             width:2em;
         }
+
+        .plussminus {
+            border: 1px solid grey;
+            border-right:none;
+            width:30px;
+            height:30px;
+            font-size:1.2em;
+            text-align:center;
+            display:inline-block;
+        }
+        #barn, #voksne {
+            border-right: none;
+            border-left: none;
+            float:left;
+        }
+        #minusBarn, #minusVoksen {
+            border-right: none;
+            float:left;
+        }
+        #plussBarn, #plussVoksen {
+            border-left: none;
+            border-right: 1px solid grey;
+        }
+
     </style>
     <script src="jquery-3.2.1.min.js"></script>
     <script>
@@ -70,20 +103,41 @@
             //    $('voksne').val();
             //}
 
-            $('#minus').click(function () {
+            //øk/mink for voksne
+
+            $('#minusVoksen').click(function () {
                 var count = $('#voksne').val();
                 count--
                 $('#voksne').val(count);
                 if (count <= 0) {
-                    $("#minus").attr("disabled", "disabled");  
+                    $("#minusVoksen").attr("disabled", "disabled");  
                 }
             })
-            $('#pluss').click(function () {
+            $('#plussVoksen').click(function () {
                 var count = $('#voksne').val();
                 count++
                 $('#voksne').val(count);
                 if (count > 0) {
-                    $('#minus').removeAttr("disabled");
+                    $('#minusVoksen').removeAttr("disabled");
+                }
+            })
+
+            // øk/mink for barn
+
+            $('#minusBarn').click(function () {
+                var count = $('#barn').val();
+                count--
+                $('#barn').val(count);
+                if (count <= 0) {
+                    $("#minusBarn").attr("disabled", "disabled");
+                }
+            })
+            $('#plussBarn').click(function () {
+                var count = $('#barn').val();
+                count++
+                $('#barn').val(count);
+                if (count > 0) {
+                    $('#minusBarn').removeAttr("disabled");
                 }
             })
         });
@@ -127,15 +181,15 @@
                 <table>
                     <tr>
                         <td>Voksne:</td>
-                        <td><button type="button" name="minus" id="minus" disabled="disabled">-</button>
-                        <input type="text" id="voksne" class="antall" value="0" />
-                        <button type="button" name="+" id="pluss">+</button></td>
+                        <td><button type="button" class="plussminus" name="minus" id="minusVoksen" disabled="disabled">-</button>
+                        <input type="text" class="plussminus" id="voksne" class="antall" value="0" />
+                        <button type="button" class="plussminus" name="+" id="plussVoksen">+</button></td>
                     </tr>
                     <tr>
                         <td>Barn (Under 12 år):</td>
-                        <td><button type="button" name="minus" id="minus" disabled="disabled">-</button>
-                        <input type="text" id="barn" class="antall" value="0" />
-                        <button type="button" name="+" id="pluss">+</button></td>
+                        <td><button type="button" class="plussminus" name="minus" id="minusBarn" disabled="disabled">-</button>
+                        <input type="text" class="plussminus" id="barn" class="antall" value="0" />
+                        <button type="button" class="plussminus" name="+" id="plussBarn">+</button></td>
                     </tr>
                 </table>
                          
