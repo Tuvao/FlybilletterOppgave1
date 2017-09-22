@@ -10,21 +10,29 @@ namespace FlybilletterOppgave1.Models
     {
         // dette er både en domenemodell og en view-modell
         public int id { get; set; }
+
         [Display(Name = "Fra sted")]
         [Required(ErrorMessage = "Fra-sted må oppgis")]
         public string FraSted { get; set; }
+
         [Display(Name = "Til sted")]
         [Required(ErrorMessage = "Til-sted må oppgis")]
         public string TilSted { get; set; }
-        [Display(Name = "")]
-        [Required(ErrorMessage = "Adressen må oppgis")]
-        public string adresse { get; set; }
-        [Display(Name = "Postnr")]
-        [Required(ErrorMessage = "Postnr må oppgis")]
-        [RegularExpression(@"[0-9]{4}", ErrorMessage = "Postnr må være 4 siffer")]
-        public string postnr { get; set; }
-        [Display(Name = "Poststed")]
-        [Required(ErrorMessage = "Poststed må oppgis")]
-        public string poststed { get; set; }
+
+        [Display(Name = "Fra dato")]
+        [Required(ErrorMessage = "Fra-dato må oppgis")]
+         public string FraDato { get; set; }
+
+        [Display(Name = "Til dato")]
+        [Required(ErrorMessage = "Til-dato må oppgis")]
+        //[RegularExpression(@"[0-9]{4}", ErrorMessage = "Postnr må være 4 siffer")]
+         public string TilDato { get; set; }
+
+        [Display(Name = "Voksne")]
+        [Required(ErrorMessage = "Du må velge minst én voksen")]
+        public string Voksne { get; set; }
+
+        [Display(Name = "Barn")]
+        public string Barn { get; set; }
     }
 }
