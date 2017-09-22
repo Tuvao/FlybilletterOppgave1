@@ -13,5 +13,10 @@ namespace FlybilletterOppgave1.Controllers
         {
             return View();
         }
+
+        public ActionResult Bestilling()
+        {
+            return View();
+        }
     }
 }
