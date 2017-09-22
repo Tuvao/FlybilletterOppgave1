@@ -14,7 +14,7 @@ namespace FlybilletterOppgave1.Models
         {
             Database.CreateIfNotExists();
         }
-        public DbSet<Bestillinger> Bestillinger { get; set; } //Lager en tabell med kundeklasse som utgangspkt (id,navn,adr)
+        public DbSet<Bestillinger> Bestillinger { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //må ha hvis vi progr på norsk og har norske navn. For å unngå s(flertall) bak tabellnavnet. 
@@ -22,6 +22,5 @@ namespace FlybilletterOppgave1.Models
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        }
     }
 }
