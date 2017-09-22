@@ -19,7 +19,7 @@ namespace FlybilletterOppgave1.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Registrer(Models.Bestillinger innBestilling)
+        public ActionResult Bestilling (Models.Bestillinger innBestilling)
         {
             //Connection til DB
             using (var db = new Models.DB())
