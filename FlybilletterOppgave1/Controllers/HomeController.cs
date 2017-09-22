@@ -34,7 +34,7 @@ namespace FlybilletterOppgave1.Controllers
                     //hva skjer om feil -- 
                 }
             }
-            return RedirectToAction("Oversikt");
+            return RedirectToAction("Index");
         }
     }
 }
