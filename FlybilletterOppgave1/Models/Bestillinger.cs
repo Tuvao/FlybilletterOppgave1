@@ -6,7 +6,7 @@ using System.Web;
 
 namespace FlybilletterOppgave1.Models
 {
-    public class Bestilling
+    public class Bestillinger
     {
         // dette er både en domenemodell og en view-modell
         public int id { get; set; }
